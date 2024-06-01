@@ -33,6 +33,14 @@ Serial.println(distance);
     previousMillis = currentMillis;
     spray();
   }
+ if (Serial.available() > 0) {
+    char command = Serial.read();
+    switch (command) {
+      case 'S':
+        spray();
+        break;
+    }
+ }
 }
 
 void spray() 
