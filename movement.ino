@@ -23,15 +23,17 @@ void loop() {
   int duration = pulseIn(echoPin, HIGH); // get distance from echoPin
   double distance = duration*0.035/2; // calculate the distance in centimeters
 
-  while (distance <= 20) // if closer than 10 cm, back away
-    {
-      moveLeft();
-    }
+  if(distance <= 20){
+    moveBackward();
+    delay(3000);
+    stop();
+  }
+  
   if (Serial.available() > 0 && distance >= 20 || distance == 0) {
     char command = Serial.read(); // read char cmd from bluetooth app
     switch(command) {
       case 'F': // move forward
-        moveLeft();
+        moveForward();
         break;
       case 'D': // print distance
         Serial.println(distance);
@@ -48,14 +50,10 @@ void loop() {
       case 'S': // spin
         spin();
         break;
-      default:
+      case 'G':
         stop();
     }
   }
-}
-
-void moveForward() {
-  motor1.run(FORWARD);
 }
 
 void moveBackward() {
@@ -64,22 +62,22 @@ void moveBackward() {
   motor3.setSpeed(255);
   motor4.setSpeed(255);
  
-  motor1.run(BACKWARD);
-  motor2.run(FORWARD);
-  motor3.run(BACKWARD);
+  motor1.run(FORWARD);
+  motor2.run(BACKWARD);
+  motor3.run(FORWARD);
   motor4.run(FORWARD);
 }
  
-void moveLeft() {
+void moveForward() {
   motor1.setSpeed(255);
   motor2.setSpeed(255);
   motor3.setSpeed(255);
   motor4.setSpeed(255);
  
   motor1.run(BACKWARD);
-  motor2.run(BACKWARD);
-  motor3.run(FORWARD);
-  motor4.run(FORWARD);
+  motor2.run(FORWARD);
+  motor3.run(BACKWARD);
+  motor4.run(BACKWARD);
 }
  
 void moveRight() {
@@ -88,9 +86,21 @@ void moveRight() {
   motor3.setSpeed(255);
   motor4.setSpeed(255);
  
+  motor1.run(BACKWARD);
+  motor2.run(BACKWARD);
+  motor3.run(BACKWARD);
+  motor4.run(FORWARD);
+}
+
+void moveLeft() {
+  motor1.setSpeed(255);
+  motor2.setSpeed(255);
+  motor3.setSpeed(255);
+  motor4.setSpeed(255);
+ 
   motor1.run(FORWARD);
   motor2.run(FORWARD);
-  motor3.run(BACKWARD);
+  motor3.run(FORWARD);
   motor4.run(BACKWARD);
 }
  
@@ -100,10 +110,10 @@ void spin() {
   motor3.setSpeed(255);
   motor4.setSpeed(255);
  
-  motor1.run(FORWARD);
-  motor2.run(FORWARD);
+  motor1.run(BACKWARD);
+  motor2.run(BACKWARD);
   motor3.run(FORWARD);
-  motor4.run(FORWARD);
+  motor4.run(BACKWARD);
 }
  
 void stop() // stop all movement
