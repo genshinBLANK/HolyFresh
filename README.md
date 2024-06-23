@@ -21,11 +21,17 @@ The Omnidirectional Scent Dispenser (OSD) is a project designed to improve air q
 
 • Motor driver shield (e.g., L298D)
 
+• 4x Omni-directional mecanum wheels
+
 • 4xDC motors (attached to the wheels)
 
-• Ultrasonic sensor (e.g., HC-SR04)
+• Chassis (to which the wheels can be attached to)
+
+• Ultrasonic sensor (e.g., HC-SR04) 
 
 • Bluetooth module (e.g., HC-05 or HC-06)
+
+• [3D Printed Aerosol Spray Can Servo Mount](https://www.printables.com/model/205737-aerosol-spray-can-servo-mount) | Modelled by Kophi
 
 • 4x1.5A Battery pack to power the Arduino and motors
 
