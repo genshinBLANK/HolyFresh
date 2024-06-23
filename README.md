@@ -27,6 +27,8 @@ The Omnidirectional Scent Dispenser (OSD) is a project designed to improve air q
 
 • Chassis (to which the wheels can be attached to)
 
+• Medium-sized Servo
+
 • Ultrasonic sensor (e.g., HC-SR04) 
 
 • Bluetooth module (e.g., HC-05 or HC-06)
