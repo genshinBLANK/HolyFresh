@@ -44,9 +44,13 @@ This Arduino project uses mecanum wheels for omnidirectional movement, controlle
 If you want to use just the movement of the mecanum wheels or just the servo dispenser code, I've uploaded them as separate files. 
 
 Software needed to run the program:
+
 • Arduino IDE
+
 • Adafruit Motor Shield Library V1.2
+
 • Servo Library (Included in the Arduino IDE)
+
 • Serial Communications Library (Included in the Arduino IDE)
 
 To use the Bluetooth commands, a Bluetooth Terminal app is needed like [Serial Bluetooth Terminal](https://play.google.com/store/apps/details?id=de.kai_morich.serial_bluetooth_terminal), in which the user needs to configure the M1-7 with the correct letter to execute the command.
